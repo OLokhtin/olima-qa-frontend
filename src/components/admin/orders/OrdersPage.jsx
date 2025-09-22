@@ -78,6 +78,32 @@ const OrdersPage = ({setIsAuthenticated}) => {
         fetchOrders();
     };
 
+    const handleDeleteOrder = async (orderId) => {
+        if (!window.confirm('Вы уверены, что хотите удалить этот заказ?')) {
+            return;
+        }
+
+        try {
+            const response = await fetch(`http://localhost:8000/api/orders/${orderId}`, {
+                method: 'DELETE',
+                credentials: 'include',
+            });
+
+            if (!response.ok) {
+                if (response.status === 401) {
+                    setIsAuthenticated(false);
+                    return;
+                }
+                throw new Error('Ошибка при удалении заказа');
+            }
+
+            // Обновляем список заказов после успешного удаления
+            fetchOrders();
+        } catch (err) {
+            setError(err.message);
+        }
+    };
+
     const handleOpenModal = () => {
         setIsModalOpen(true);
     };
@@ -106,7 +132,7 @@ const OrdersPage = ({setIsAuthenticated}) => {
                 pagination={pagination}
                 setPagination={setPagination}
             />
-            <OrdersTable orders={orders}/>
+            <OrdersTable orders={orders} onDeleteOrder={handleDeleteOrder}/>
             <OrdersModal
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}

@@ -2,7 +2,7 @@ import React from 'react';
 import OrdersRow from './OrdersRow';
 import '../AdminTable.css';
 
-const OrdersTable = ({orders}) => {
+const OrdersTable = ({orders, onDeleteOrder}) => {
     if (!orders || orders.length === 0) {
         return null;
     }
@@ -25,7 +25,11 @@ const OrdersTable = ({orders}) => {
                 </thead>
                 <tbody>
                 {orders.map(order => (
-                    <OrdersRow key={order.order_id} order={order} />
+                    <OrdersRow
+                        key={order.order_id}
+                        order={order}
+                        onDeleteOrder={onDeleteOrder}
+                    />
                 ))}
                 </tbody>
             </table>

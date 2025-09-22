@@ -28,12 +28,12 @@ function App() {
                         path="/login"
                         element={
                             isAuthenticated ?
-                                <Navigate to="/companies" replace /> :
+                                <Navigate to="/orders" replace /> :
                                 <LoginPage onLoginSuccess={handleLoginSuccess} />
                         }
                     />
                     <Route
-                        path="/companies"
+                        path="/orders"
                         element={
                             isAuthenticated ?
                                 <OrdersPage setIsAuthenticated={setIsAuthenticated} /> :
@@ -44,7 +44,7 @@ function App() {
                         path="/"
                         element={
                             isAuthenticated ?
-                                <Navigate to="/companies" replace /> :
+                                <Navigate to="/orders" replace /> :
                                 <Navigate to="/login" replace />
                         }
                     />

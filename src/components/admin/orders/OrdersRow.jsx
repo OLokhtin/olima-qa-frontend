@@ -1,6 +1,7 @@
 import React from 'react';
+import RedBtn from "../../button/RedBtn";
 
-const OrdersRow = ({order}) => {
+const OrdersRow = ({order, onDeleteOrder}) => {
     return (
         <tr>
             <td>{order.order_id}</td>
@@ -12,6 +13,11 @@ const OrdersRow = ({order}) => {
             <td>{order.delivery_address}</td>
             <td>{order.delivery_date}</td>
             <td>{order.total_amount}</td>
+            <td>
+                <RedBtn onClick={() => onDeleteOrder(order.order_id)}>
+                    Удалить
+                </RedBtn>
+            </td>
         </tr>
     );
 };
