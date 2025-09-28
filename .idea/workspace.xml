@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfcb05e0-42f0-4587-9a3a-f7978ece2276" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/src/components/auth/LoginPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/PaginationBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/PaginationBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/LoginPage.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/LoginPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminModal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminTable.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminTable.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/orders/OrdersModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersRow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/orders/OrdersRow.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/orders/OrdersTable.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +19,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {

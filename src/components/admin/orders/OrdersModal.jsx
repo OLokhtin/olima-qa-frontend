@@ -237,8 +237,10 @@ const OrdersModal = ({ isOpen, onClose, onSave, order, isEditing }) => {
                                 onChange={handleInputChange}
                             >
                                 <option value="1">Новый</option>
-                                <option value="2">В обработке</option>
-                                <option value="3">Выполнен</option>
+                                <option value="2">Оформлен</option>
+                                <option value="3">Собран</option>
+                                <option value="4">В пути</option>
+                                <option value="4">Доставлен</option>
                                 <option value="4">Отменен</option>
                             </select>
                         </div>

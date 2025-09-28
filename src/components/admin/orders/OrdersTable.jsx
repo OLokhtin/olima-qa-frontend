@@ -4,7 +4,13 @@ import '../AdminTable.css';
 
 const OrdersTable = ({orders, onDeleteOrder, onEditOrder}) => {
     if (!orders || orders.length === 0) {
-        return null;
+        return (
+            <div className="admin-table">
+                <div className="text-center mt-4">
+                    Нет данных для отображения
+                </div>
+            </div>
+        );
     }
 
     return (
@@ -21,7 +27,7 @@ const OrdersTable = ({orders, onDeleteOrder, onEditOrder}) => {
                     <th>Адрес доставки</th>
                     <th>Дата доставки</th>
                     <th>Сумма заказа</th>
-                    <th>Действия</th>
+                    <th></th> {/* Пустой заголовок для действий */}
                 </tr>
                 </thead>
                 <tbody>

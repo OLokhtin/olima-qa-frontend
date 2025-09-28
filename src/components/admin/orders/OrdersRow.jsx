@@ -4,9 +4,11 @@ const OrdersRow = ({ order, onDeleteOrder, onEditOrder }) => {
     const getStatusText = (status) => {
         const statusMap = {
             '1': 'Новый',
-            '2': 'В обработке',
-            '3': 'Выполнен',
-            '4': 'Отменен'
+            '2': 'Оформлен',
+            '3': 'Собран',
+            '4': 'В пути',
+            '5': 'Доставлен',
+            '6': 'Отменен'
         };
         return statusMap[status] || status;
     };

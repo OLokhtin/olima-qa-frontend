@@ -28,11 +28,19 @@
     border-bottom: 1px solid #dee2e6;
 }
 
+.admin-table th:last-child {
+    width: 140px; /* Фиксированная ширина для колонки действий */
+}
+
 .admin-table td {
     padding: 16px 12px;
     border-bottom: 1px solid #e9ecef;
     color: #212529;
     vertical-align: top;
+}
+
+.admin-table td:last-child {
+    width: 140px; /* Фиксированная ширина для колонки действий */
 }
 
 .admin-table tbody tr:hover {
@@ -45,13 +53,13 @@
 
 .action-buttons {
     display: flex;
+    flex-direction: column;
     gap: 8px;
-    flex-wrap: wrap;
+    min-width: 120px;
 }
 
-.edit-btn {
-    background-color: #007bff;
-    color: white;
+.edit-btn, .delete-btn {
+    width: 100%;
     border: none;
     padding: 8px 12px;
     border-radius: 6px;
@@ -59,7 +67,12 @@
     font-size: 12px;
     font-weight: 500;
     transition: all 0.2s ease;
-    min-width: 100px;
+    text-align: center;
+}
+
+.edit-btn {
+    background-color: #007bff;
+    color: white;
 }
 
 .edit-btn:hover {
@@ -71,18 +84,18 @@
 .delete-btn {
     background-color: #dc3545;
     color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    min-width: 80px;
 }
 
 .delete-btn:hover {
     background-color: #c82333;
     transform: translateY(-1px);
     box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 24px;
 }
