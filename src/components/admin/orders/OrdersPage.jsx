@@ -6,28 +6,29 @@ import AdminPanel from "../AdminPanel";
 import '../AdminPage.css';
 
 const OrdersPage = ({setIsAuthenticated}) => {
-    const [orders, setOrders] = useState([]);
+    const [allOrders, setAllOrders] = useState([]);
+    const [displayedOrders, setDisplayedOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingOrder, setEditingOrder] = useState(null);
+    const [sortConfig, setSortConfig] = useState({
+        field: 'created_at',
+        direction: 'asc'
+    });
     const [pagination, setPagination] = useState({
         limit: 10,
         offset: 0,
         total: 0
     });
 
-    const fetchOrders = useCallback(async () => {
+    // Загружаем все заказы при монтировании
+    const fetchAllOrders = useCallback(async () => {
         try {
             setLoading(true);
             setError(null);
 
-            const params = new URLSearchParams({
-                limit: pagination.limit.toString(),
-                offset: pagination.offset.toString()
-            });
-
-            const response = await fetch(`http://localhost:8000/api/orders?${params}`, {
+            const response = await fetch('http://localhost:8000/api/orders', {
                 credentials: 'include',
             });
 
@@ -40,22 +41,72 @@ const OrdersPage = ({setIsAuthenticated}) => {
             }
 
             const data = await response.json();
-            setOrders(data.orders || data);
+            const orders = data.orders || data;
+            setAllOrders(orders);
+            setPagination(prev => ({ ...prev, total: orders.length }));
 
-            if (data.total !== undefined) {
-                setPagination(prev => ({ ...prev, total: data.total }));
-            }
         } catch (err) {
             setError(err.message);
-            setOrders([]);
+            setAllOrders([]);
         } finally {
             setLoading(false);
         }
-    }, [pagination.limit, pagination.offset, setIsAuthenticated]);
+    }, [setIsAuthenticated]);
 
     useEffect(() => {
-        fetchOrders();
-    }, [fetchOrders]);
+        fetchAllOrders();
+    }, [fetchAllOrders]);
+
+    // Сортировка заказов
+    const sortOrders = useCallback((orders, config) => {
+        const sortedOrders = [...orders];
+
+        sortedOrders.sort((a, b) => {
+            let aValue = a[config.field];
+            let bValue = b[config.field];
+
+            // Приводим к числам для суммы заказа
+            if (config.field === 'total_amount') {
+                aValue = parseFloat(aValue) || 0;
+                bValue = parseFloat(bValue) || 0;
+            }
+            // Приводим к датам для даты создания
+            else if (config.field === 'created_at') {
+                aValue = new Date(aValue).getTime();
+                bValue = new Date(bValue).getTime();
+            }
+
+            if (aValue < bValue) {
+                return config.direction === 'asc' ? -1 : 1;
+            }
+            if (aValue > bValue) {
+                return config.direction === 'asc' ? 1 : -1;
+            }
+            return 0;
+        });
+
+        return sortedOrders;
+    }, []);
+
+    // Применяем сортировку и пагинацию
+    useEffect(() => {
+        if (allOrders.length > 0) {
+            const sorted = sortOrders(allOrders, sortConfig);
+            const paginated = sorted.slice(pagination.offset, pagination.offset + pagination.limit);
+            setDisplayedOrders(paginated);
+        } else {
+            setDisplayedOrders([]);
+        }
+    }, [allOrders, sortConfig, pagination.offset, pagination.limit, sortOrders]);
+
+    const handleSort = (field) => {
+        setSortConfig(prev => ({
+            field,
+            direction: prev.field === field && prev.direction === 'asc' ? 'desc' : 'asc'
+        }));
+        // Сбрасываем пагинацию при изменении сортировки
+        setPagination(prev => ({ ...prev, offset: 0 }));
+    };
 
     const handleSaveOrder = async (orderData) => {
         try {
@@ -76,7 +127,7 @@ const OrdersPage = ({setIsAuthenticated}) => {
                 throw new Error('Ошибка при создании заказа');
             }
 
-            fetchOrders();
+            fetchAllOrders(); // Перезагружаем все заказы
         } catch (err) {
             setError(err.message);
         }
@@ -102,7 +153,7 @@ const OrdersPage = ({setIsAuthenticated}) => {
             }
 
             setEditingOrder(null);
-            fetchOrders();
+            fetchAllOrders(); // Перезагружаем все заказы
         } catch (err) {
             setError(err.message);
         }
@@ -127,7 +178,7 @@ const OrdersPage = ({setIsAuthenticated}) => {
                 throw new Error('Ошибка при удалении заказа');
             }
 
-            fetchOrders();
+            fetchAllOrders(); // Перезагружаем все заказы
         } catch (err) {
             setError(err.message);
         }
@@ -201,14 +252,17 @@ const OrdersPage = ({setIsAuthenticated}) => {
                 </div>
             </div>
             <PaginationBar
-                services={orders}
+                services={displayedOrders}
                 pagination={pagination}
                 setPagination={setPagination}
+                totalItems={allOrders.length}
             />
             <OrdersTable
-                orders={orders}
+                orders={displayedOrders}
                 onDeleteOrder={handleDeleteOrder}
                 onEditOrder={handleEditOrder}
+                sortConfig={sortConfig}
+                onSort={handleSort}
             />
             <OrdersModal
                 isOpen={isModalOpen}

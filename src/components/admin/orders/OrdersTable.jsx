@@ -2,7 +2,7 @@ import React from 'react';
 import OrdersRow from './OrdersRow';
 import '../AdminTable.css';
 
-const OrdersTable = ({orders, onDeleteOrder, onEditOrder}) => {
+const OrdersTable = ({orders, onDeleteOrder, onEditOrder, sortConfig, onSort}) => {
     if (!orders || orders.length === 0) {
         return (
             <div className="admin-table">
@@ -13,6 +13,11 @@ const OrdersTable = ({orders, onDeleteOrder, onEditOrder}) => {
         );
     }
 
+    const getSortIcon = (field) => {
+        if (sortConfig.field !== field) return '↕';
+        return sortConfig.direction === 'asc' ? '↑' : '↓';
+    };
+
     return (
         <div className="admin-table">
             <table>
@@ -20,14 +25,24 @@ const OrdersTable = ({orders, onDeleteOrder, onEditOrder}) => {
                 <tr>
                     <th>ID заказа</th>
                     <th>Статус заказа</th>
-                    <th>Дата создания</th>
+                    <th
+                        className="sortable"
+                        onClick={() => onSort('created_at')}
+                    >
+                        Дата заказа {getSortIcon('created_at')}
+                    </th>
                     <th>ФИО клиента</th>
                     <th>Телефон клиента</th>
                     <th>Email клиента</th>
                     <th>Адрес доставки</th>
                     <th>Дата доставки</th>
-                    <th>Сумма заказа</th>
-                    <th></th> {/* Пустой заголовок для действий */}
+                    <th
+                        className="sortable"
+                        onClick={() => onSort('total_amount')}
+                    >
+                        Сумма заказа {getSortIcon('total_amount')}
+                    </th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>

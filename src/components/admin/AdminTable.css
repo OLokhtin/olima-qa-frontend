@@ -99,3 +99,13 @@
 .mt-4 {
     margin-top: 24px;
 }
+
+.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+.sortable:hover {
+    background-color: #e9ecef;
+}

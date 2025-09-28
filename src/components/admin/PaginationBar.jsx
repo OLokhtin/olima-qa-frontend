@@ -1,8 +1,9 @@
 import React from 'react';
 import './PaginationBar.css';
 
-const PaginationBar = ({services, pagination, setPagination}) => {
+const PaginationBar = ({services, pagination, setPagination, totalItems}) => {
     const currentPage = Math.floor(pagination.offset / pagination.limit) + 1;
+    const totalPages = Math.ceil(totalItems / pagination.limit);
 
     const handleNextPage = () => {
         setPagination(prev => ({
@@ -29,7 +30,7 @@ const PaginationBar = ({services, pagination, setPagination}) => {
     return (
         <div className="pagination-bar">
             <div className="pagination-info">
-                Записей: {services.length}
+                Показано {services.length} из {totalItems} записей
             </div>
 
             <div className="pagination-controls">
@@ -42,7 +43,7 @@ const PaginationBar = ({services, pagination, setPagination}) => {
                 </button>
 
                 <div className="pagination-page-info">
-                    Страница {currentPage}
+                    Страница {currentPage} из {totalPages}
                 </div>
 
                 <select
@@ -57,7 +58,7 @@ const PaginationBar = ({services, pagination, setPagination}) => {
 
                 <button
                     onClick={handleNextPage}
-                    disabled={services.length < pagination.limit}
+                    disabled={currentPage >= totalPages}
                     className="pagination-btn"
                 >
                     Вперед →

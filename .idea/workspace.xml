@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="dfcb05e0-42f0-4587-9a3a-f7978ece2276" name="Changes" comment="Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminModal.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/admin/AdminTable.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminTable.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/orders/OrdersModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersRow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/orders/OrdersRow.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/PaginationBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/PaginationBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/orders/OrdersPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/orders/OrdersTable.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
