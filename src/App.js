@@ -6,17 +6,41 @@ import LoginPage from "./components/login/LoginPage";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setIsAuthenticated(false);
+        // Проверяем авторизацию через любой защищенный эндпоинт
+        checkAuthStatus();
     }, []);
 
-    // Функция для установки статуса авторизации после успешного входа
+    const checkAuthStatus = async () => {
+        try {
+            // Используем эндпоинт заказов для проверки авторизации
+            const response = await fetch('http://localhost:8000/api/orders?limit=1', {
+                method: 'GET',
+                credentials: 'include',
+            });
+
+            if (response.ok) {
+                setIsAuthenticated(true);
+            } else if (response.status === 401) {
+                setIsAuthenticated(false);
+            } else {
+                setIsAuthenticated(false);
+            }
+        } catch (error) {
+            console.error('Ошибка при проверке авторизации:', error);
+            setIsAuthenticated(false);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     const handleLoginSuccess = () => {
         setIsAuthenticated(true);
     };
 
-    if (isAuthenticated === null) {
+    if (isLoading) {
         return <div className="loading">Загрузка...</div>;
     }
 

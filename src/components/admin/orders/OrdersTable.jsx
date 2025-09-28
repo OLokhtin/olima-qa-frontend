@@ -2,7 +2,7 @@ import React from 'react';
 import OrdersRow from './OrdersRow';
 import '../AdminTable.css';
 
-const OrdersTable = ({orders, onDeleteOrder}) => {
+const OrdersTable = ({orders, onDeleteOrder, onEditOrder}) => {
     if (!orders || orders.length === 0) {
         return null;
     }
@@ -14,13 +14,14 @@ const OrdersTable = ({orders, onDeleteOrder}) => {
                 <tr>
                     <th>ID заказа</th>
                     <th>Статус заказа</th>
-                    <th>Дата и время создания заказа</th>
+                    <th>Дата создания</th>
                     <th>ФИО клиента</th>
-                    <th>Номер телефона клиента</th>
-                    <th>Электронная почта клиента</th>
+                    <th>Телефон клиента</th>
+                    <th>Email клиента</th>
                     <th>Адрес доставки</th>
                     <th>Дата доставки</th>
-                    <th>Общая сумма заказа</th>
+                    <th>Сумма заказа</th>
+                    <th>Действия</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,7 @@ const OrdersTable = ({orders, onDeleteOrder}) => {
                         key={order.order_id}
                         order={order}
                         onDeleteOrder={onDeleteOrder}
+                        onEditOrder={onEditOrder}
                     />
                 ))}
                 </tbody>

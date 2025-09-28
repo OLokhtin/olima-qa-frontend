@@ -1,7 +1,9 @@
 import React from 'react';
-import './PaginationBar.css'
+import './PaginationBar.css';
 
 const PaginationBar = ({services, pagination, setPagination}) => {
+    const currentPage = Math.floor(pagination.offset / pagination.limit) + 1;
+    const totalPages = Math.ceil(pagination.total / pagination.limit);
 
     const handleNextPage = () => {
         setPagination(prev => ({
@@ -21,33 +23,37 @@ const PaginationBar = ({services, pagination, setPagination}) => {
         setPagination(prev => ({
             ...prev,
             limit: newLimit,
-            offset: 0 // Сбрасываем offset при изменении лимита
+            offset: 0
         }));
     };
 
     return (
-        <div className="pagination-controls">
+        <div className="pagination-bar">
             <div className="pagination-info">
-                Показано: {services.length} записей
-                {pagination.total > 0 && ` из ${pagination.total}`}
+                Показано {services.length} из {pagination.total} записей
             </div>
-            <div className="pagination-buttons">
+
+            <div className="pagination-controls">
                 <button
                     onClick={handlePrevPage}
                     disabled={pagination.offset === 0}
                     className="pagination-btn"
                 >
-                    Назад
+                    ← Назад
                 </button>
+
+                <div className="pagination-page-info">
+                    Страница {currentPage} из {totalPages}
+                </div>
 
                 <select
                     value={pagination.limit}
                     onChange={(e) => handleLimitChange(Number(e.target.value))}
-                    className="limit-select"
+                    className="pagination-select"
                 >
-                    <option value={10}>10 записей</option>
-                    <option value={20}>20 записей</option>
-                    <option value={50}>50 записей</option>
+                    <option value={10}>10 на странице</option>
+                    <option value={20}>20 на странице</option>
+                    <option value={50}>50 на странице</option>
                 </select>
 
                 <button
@@ -55,7 +61,7 @@ const PaginationBar = ({services, pagination, setPagination}) => {
                     disabled={services.length < pagination.limit}
                     className="pagination-btn"
                 >
-                    Вперед
+                    Вперед →
                 </button>
             </div>
         </div>

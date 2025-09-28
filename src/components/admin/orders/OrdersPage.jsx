@@ -1,16 +1,16 @@
-import React, {useState, useCallback, useEffect} from 'react';
-import '../AdminPage.css';
-import OrdersTable from './OrdersTable';
-import AdminPanel from "../AdminPanel";
-import GreenBtn from "../../button/GreenBtn";
+import React, { useState, useEffect, useCallback } from 'react';
 import OrdersModal from "./OrdersModal";
 import PaginationBar from "../PaginationBar";
+import OrdersTable from "./OrdersTable";
+import AdminPanel from "../AdminPanel";
+import '../AdminPage.css';
 
 const OrdersPage = ({setIsAuthenticated}) => {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [editingOrder, setEditingOrder] = useState(null);
     const [pagination, setPagination] = useState({
         limit: 10,
         offset: 0,
@@ -58,24 +58,54 @@ const OrdersPage = ({setIsAuthenticated}) => {
     }, [fetchOrders]);
 
     const handleSaveOrder = async (orderData) => {
-        const response = await fetch('http://localhost:8000/api/orders', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-            body: JSON.stringify(orderData),
-        });
+        try {
+            const response = await fetch('http://localhost:8000/api/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: JSON.stringify(orderData),
+            });
 
-        if (!response.ok) {
-            if (response.status === 401) {
-                setIsAuthenticated(false);
-                return;
+            if (!response.ok) {
+                if (response.status === 401) {
+                    setIsAuthenticated(false);
+                    return;
+                }
+                throw new Error('Ошибка при создании заказа');
             }
-            throw new Error('Ошибка при создании заказа');
-        }
 
-        fetchOrders();
+            fetchOrders();
+        } catch (err) {
+            setError(err.message);
+        }
+    };
+
+    const handleUpdateOrder = async (orderData) => {
+        try {
+            const response = await fetch(`http://localhost:8000/api/orders/${editingOrder.order_id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: JSON.stringify(orderData),
+            });
+
+            if (!response.ok) {
+                if (response.status === 401) {
+                    setIsAuthenticated(false);
+                    return;
+                }
+                throw new Error('Ошибка при обновлении заказа');
+            }
+
+            setEditingOrder(null);
+            fetchOrders();
+        } catch (err) {
+            setError(err.message);
+        }
     };
 
     const handleDeleteOrder = async (orderId) => {
@@ -97,19 +127,54 @@ const OrdersPage = ({setIsAuthenticated}) => {
                 throw new Error('Ошибка при удалении заказа');
             }
 
-            // Обновляем список заказов после успешного удаления
             fetchOrders();
         } catch (err) {
             setError(err.message);
         }
     };
 
+    const handleLogout = async () => {
+        if (!window.confirm('Вы уверены, что хотите выйти?')) {
+            return;
+        }
+
+        try {
+            const response = await fetch('http://localhost:8000/api/logout', {
+                method: 'POST',
+                credentials: 'include',
+            });
+
+            if (response.ok) {
+                setIsAuthenticated(false);
+            } else {
+                throw new Error('Ошибка при выходе из системы');
+            }
+        } catch (err) {
+            setError(err.message);
+        }
+    };
+
+    const handleEditOrder = (order) => {
+        setEditingOrder(order);
+        setIsModalOpen(true);
+    };
+
     const handleOpenModal = () => {
+        setEditingOrder(null);
         setIsModalOpen(true);
     };
 
     const handleCloseModal = () => {
+        setEditingOrder(null);
         setIsModalOpen(false);
+    };
+
+    const handleModalSave = (orderData) => {
+        if (editingOrder) {
+            handleUpdateOrder(orderData);
+        } else {
+            handleSaveOrder(orderData);
+        }
     };
 
     if (loading) {
@@ -122,21 +187,35 @@ const OrdersPage = ({setIsAuthenticated}) => {
 
     return (
         <div className="admin-page">
+            <button className="logout-btn" onClick={handleLogout}>
+                Выйти
+            </button>
+
             <h1>Заказы</h1>
             <div className="header-container">
                 <AdminPanel />
-                <GreenBtn onClick={handleOpenModal}>Создать заказ</GreenBtn>
+                <div className="header-actions">
+                    <button className="green-btn" onClick={handleOpenModal}>
+                        Создать заказ
+                    </button>
+                </div>
             </div>
             <PaginationBar
                 services={orders}
                 pagination={pagination}
                 setPagination={setPagination}
             />
-            <OrdersTable orders={orders} onDeleteOrder={handleDeleteOrder}/>
+            <OrdersTable
+                orders={orders}
+                onDeleteOrder={handleDeleteOrder}
+                onEditOrder={handleEditOrder}
+            />
             <OrdersModal
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
-                onSave={handleSaveOrder}
+                onSave={handleModalSave}
+                order={editingOrder}
+                isEditing={!!editingOrder}
             />
         </div>
     );
