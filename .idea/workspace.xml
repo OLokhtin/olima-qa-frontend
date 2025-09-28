@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfcb05e0-42f0-4587-9a3a-f7978ece2276" name="Changes" comment="Delete row">
+    <list default="true" id="dfcb05e0-42f0-4587-9a3a-f7978ece2276" name="Changes" comment="Update">
+      <change afterPath="$PROJECT_DIR$/src/components/auth/LoginPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminModal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminPanel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminTable.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminTable.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/PaginationBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/PaginationBar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/admin/PaginationBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/PaginationBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/orders/OrdersModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/orders/OrdersPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersRow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/orders/OrdersRow.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/orders/OrdersTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/LoginPage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/LoginPage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +39,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="332zgopGJIevyu3dqBafQK8URkB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -98,7 +93,7 @@
       <workItem from="1758559564073" duration="27000" />
       <workItem from="1758559650315" duration="593000" />
       <workItem from="1758560311796" duration="2000" />
-      <workItem from="1759061812338" duration="6874000" />
+      <workItem from="1759061812338" duration="11622000" />
     </task>
     <task id="LOCAL-00001" summary="Orders">
       <option name="closed" value="true" />
@@ -116,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758559517089</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update">
+      <option name="closed" value="true" />
+      <created>1759068730809</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1759068730809</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +139,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Orders" />
     <MESSAGE value="Delete row" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete row" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
 </project>

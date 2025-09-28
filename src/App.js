@@ -2,7 +2,8 @@ import React, {useEffect, useState} from "react";
 import './styles/App.css'
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import OrdersPage from "./components/admin/orders/OrdersPage";
-import LoginPage from "./components/login/LoginPage";
+import LoginPage from "./components/auth/LoginPage";
+import RegisterPage from "./components/auth/RegisterPage";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -54,6 +55,14 @@ function App() {
                             isAuthenticated ?
                                 <Navigate to="/orders" replace /> :
                                 <LoginPage onLoginSuccess={handleLoginSuccess} />
+                        }
+                    />
+                    <Route
+                        path="/register"
+                        element={
+                            isAuthenticated ?
+                                <Navigate to="/orders" replace /> :
+                                <RegisterPage onLoginSuccess={handleLoginSuccess} />
                         }
                     />
                     <Route

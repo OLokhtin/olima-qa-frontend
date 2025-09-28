@@ -51,6 +51,10 @@ const LoginPage = ({ onLoginSuccess }) => {
         }
     };
 
+    const handleRegisterRedirect = () => {
+        navigate('/register');
+    };
+
     return (
         <div className="login-page">
             <div className="login-container">
@@ -101,6 +105,18 @@ const LoginPage = ({ onLoginSuccess }) => {
                     >
                         {loading ? 'Вход...' : 'Войти'}
                     </button>
+
+                    <div className="register-section">
+                        <p>Нет аккаунта?</p>
+                        <button
+                            type="button"
+                            className="register-btn"
+                            onClick={handleRegisterRedirect}
+                            disabled={loading}
+                        >
+                            Регистрация
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
