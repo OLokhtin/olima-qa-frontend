@@ -3,7 +3,7 @@ import Table from '../../common/Table/Table';
 import OrdersRow from '../OrdersRow/OrdersRow';
 import './OrdersTable.css';
 
-const OrdersTable = ({ orders, sortConfig, onSort, onEdit, onDelete }) => {
+const OrdersTable = ({ orders, sortConfig, onSort, onEdit, onDelete, getStatusText }) => {
     const getSortIcon = (field) => {
         if (sortConfig.field !== field) return '↕️';
         return sortConfig.direction === 'asc' ? '↑' : '↓';
@@ -22,9 +22,9 @@ const OrdersTable = ({ orders, sortConfig, onSort, onEdit, onDelete }) => {
         },
         {
             key: 'created_at',
-            title: 'Дата заказа', // Убрали стрелку из title
+            title: 'Дата заказа',
             sortable: true,
-            sortIcon: getSortIcon('created_at'), // Стрелка только здесь
+            sortIcon: getSortIcon('created_at'),
             onSort: () => onSort('created_at'),
             width: '150px'
         },
@@ -55,9 +55,9 @@ const OrdersTable = ({ orders, sortConfig, onSort, onEdit, onDelete }) => {
         },
         {
             key: 'total_amount',
-            title: 'Сумма заказа', // Убрали стрелку из title
+            title: 'Сумма заказа',
             sortable: true,
-            sortIcon: getSortIcon('total_amount'), // Стрелка только здесь
+            sortIcon: getSortIcon('total_amount'),
             onSort: () => onSort('total_amount'),
             width: '120px'
         },
@@ -74,6 +74,7 @@ const OrdersTable = ({ orders, sortConfig, onSort, onEdit, onDelete }) => {
             order={order}
             onEdit={onEdit}
             onDelete={onDelete}
+            getStatusText={getStatusText}
         />
     );
 

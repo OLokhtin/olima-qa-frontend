@@ -6,7 +6,7 @@ import Button from '../../common/Button/Button';
 import { validateOrderForm } from '../utils/validators';
 import './OrderModal.css';
 
-const OrderModal = ({ isOpen, onClose, onSave, order, isEditing }) => {
+const OrderModal = ({ isOpen, onClose, onSave, order, isEditing, statusOptions }) => {
     const [formData, setFormData] = useState({
         customer_full_name: '',
         customer_phone: '',
@@ -157,14 +157,7 @@ const OrderModal = ({ isOpen, onClose, onSave, order, isEditing }) => {
                         name="status"
                         value={formData.status}
                         onChange={(value) => handleInputChange('status', value)}
-                        options={[
-                            { value: '1', label: 'Новый' },
-                            { value: '2', label: 'Оформлен' },
-                            { value: '3', label: 'Собран' },
-                            { value: '4', label: 'В пути' },
-                            { value: '5', label: 'Доставлен' },
-                            { value: '6', label: 'Отменен' }
-                        ]}
+                        options={statusOptions || []}
                         disabled={loading}
                     />
                 )}

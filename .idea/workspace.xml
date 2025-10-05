@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfcb05e0-42f0-4587-9a3a-f7978ece2276" name="Changes" comment="Components structure">
+    <list default="true" id="dfcb05e0-42f0-4587-9a3a-f7978ece2276" name="Changes" comment="Minor form fixing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orders/OrderModal/OrderModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/OrderModal/OrderModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orders/OrdersPage/OrdersPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/OrdersPage/OrdersPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orders/OrdersPage/OrdersPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/OrdersPage/OrdersPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orders/OrdersRow/OrdersRow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/OrdersRow/OrdersRow.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/orders/OrdersTable/OrdersTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/OrdersTable/OrdersTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orders/hooks/useOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/hooks/useOrders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orders/utils/formatters.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +108,7 @@
       <workItem from="1759061812338" duration="11622000" />
       <workItem from="1759176088926" duration="2441000" />
       <workItem from="1759656282921" duration="3424000" />
-      <workItem from="1759659732411" duration="2511000" />
+      <workItem from="1759659732411" duration="4894000" />
     </task>
     <task id="LOCAL-00001" summary="Orders">
       <option name="closed" value="true" />
@@ -138,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759661674159</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Minor form fixing">
+      <option name="closed" value="true" />
+      <created>1759662310388</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759662310388</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +172,7 @@
     <MESSAGE value="Delete row" />
     <MESSAGE value="Update" />
     <MESSAGE value="Components structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Components structure" />
+    <MESSAGE value="Minor form fixing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor form fixing" />
   </component>
 </project>

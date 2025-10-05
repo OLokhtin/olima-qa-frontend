@@ -1,13 +1,13 @@
 import React from 'react';
 import Button from '../../common/Button/Button';
-import { formatDate, formatDateTime, getStatusText } from '../utils/formatters';
+import { formatDate, formatDateTime } from '../utils/formatters';
 import './OrdersRow.css';
 
-const OrdersRow = ({ order, onEdit, onDelete }) => {
+const OrdersRow = ({ order, onEdit, onDelete, getStatusText }) => {
     return (
         <tr className="orders-row">
             <td>#{order.order_id}</td>
-            <td>{getStatusText(order.status)}</td>
+            <td>{getStatusText ? getStatusText(order.status) : order.status}</td>
             <td>{formatDateTime(order.created_at)}</td>
             <td>{order.customer_full_name || '-'}</td>
             <td>{order.customer_phone || '-'}</td>

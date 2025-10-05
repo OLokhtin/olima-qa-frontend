@@ -2,14 +2,13 @@ import { useState, useCallback, useEffect } from 'react';
 
 export const useOrders = () => {
     const [orders, setOrders] = useState([]);
-    const [loading, setLoading] = useState(true); // Начинаем с true
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     const fetchOrders = useCallback(async () => {
         try {
             setLoading(true);
             setError(null);
-            console.log('Fetching orders...'); // Для отладки
 
             const response = await fetch('http://localhost:8000/api/orders', {
                 method: 'GET',
@@ -19,8 +18,6 @@ export const useOrders = () => {
                 },
             });
 
-            console.log('Response status:', response.status); // Для отладки
-
             if (!response.ok) {
                 if (response.status === 401) {
                     throw new Error('Unauthorized');
@@ -29,10 +26,8 @@ export const useOrders = () => {
             }
 
             const data = await response.json();
-            console.log('Orders data:', data); // Для отладки
             setOrders(data.orders || data);
         } catch (err) {
-            console.error('Error fetching orders:', err); // Для отладки
             setError(err.message);
             setOrders([]);
         } finally {

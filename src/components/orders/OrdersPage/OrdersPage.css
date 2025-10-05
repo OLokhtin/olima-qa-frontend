@@ -14,15 +14,38 @@
 .orders-page__header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 24px;
+    gap: 16px;
 }
 
-.orders-page__header h1 {
+.orders-page__title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.orders-page__title h1 {
     font-size: 32px;
     font-weight: 700;
     color: #1a1a1a;
     margin: 0;
+}
+
+.orders-page__stats {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+    color: #6c757d;
+    flex-wrap: wrap;
+}
+
+.filter-badge {
+    background-color: #e7f3ff;
+    color: #0066cc;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
 }
 
 .error {
@@ -36,4 +59,17 @@
     border: 1px solid #f5c6cb;
     border-radius: 8px;
     padding: 20px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .orders-page__header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .orders-page__stats {
+        flex-direction: column;
+        gap: 8px;
+    }
 }
