@@ -1,0 +1,80 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.login-page__container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-page__header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-page__header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.login-page__header p {
+    color: #6c757d;
+    font-size: 14px;
+    margin: 0;
+}
+
+.login-page__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-page__submit {
+    margin-top: 10px;
+}
+
+.login-page__error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #f5c6cb;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.login-page__register {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.login-page__register p {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+    .login-page__container {
+        padding: 30px 20px;
+    }
+
+    .login-page__header h1 {
+        font-size: 24px;
+    }
+}
