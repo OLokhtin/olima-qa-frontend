@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Input from '../../components/common/Form/Input/Input';
+import Button from '../../components/common/Button/Button';
 import './RegisterPage.css';
 
 const RegisterPage = ({ onLoginSuccess }) => {
@@ -84,8 +86,7 @@ const RegisterPage = ({ onLoginSuccess }) => {
         return `${numbers.slice(0, 2)}.${numbers.slice(2, 4)}.${numbers.slice(4, 8)}`;
     };
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
+    const handleInputChange = (name, value) => {
         let formattedValue = value;
 
         if (name === 'user_phone') {
@@ -252,135 +253,121 @@ const RegisterPage = ({ onLoginSuccess }) => {
                 <form onSubmit={handleSubmit} className="register-form">
                     <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="user_email">Электронная почта *</label>
-                            <input
+                            <Input
+                                label="Электронная почта *"
                                 type="email"
-                                id="user_email"
                                 name="user_email"
                                 value={formData.user_email}
-                                onChange={handleInputChange}
-                                className={errors.user_email ? 'error' : ''}
+                                onChange={(value) => handleInputChange('user_email', value)}
+                                error={errors.user_email}
                                 placeholder="example@mail.ru"
                                 disabled={loading}
                             />
-                            {errors.user_email && <span className="error-text">{errors.user_email}</span>}
                         </div>
                     </div>
 
                     <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="user_password">Пароль *</label>
-                            <input
+                            <Input
+                                label="Пароль *"
                                 type="password"
-                                id="user_password"
                                 name="user_password"
                                 value={formData.user_password}
-                                onChange={handleInputChange}
-                                className={errors.user_password ? 'error' : ''}
+                                onChange={(value) => handleInputChange('user_password', value)}
+                                error={errors.user_password}
                                 placeholder="Не менее 8 символов"
                                 disabled={loading}
                             />
-                            {errors.user_password && <span className="error-text">{errors.user_password}</span>}
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="confirm_password">Повторный пароль *</label>
-                            <input
+                            <Input
+                                label="Повторный пароль *"
                                 type="password"
-                                id="confirm_password"
                                 name="confirm_password"
                                 value={formData.confirm_password}
-                                onChange={handleInputChange}
-                                className={showPasswordError ? 'error' : ''}
+                                onChange={(value) => handleInputChange('confirm_password', value)}
+                                error={showPasswordError ? 'Пароли не совпадают' : ''}
                                 placeholder="Повторите пароль"
                                 disabled={loading}
                             />
-                            {showPasswordError && <span className="error-text">Пароли не совпадают</span>}
                         </div>
                     </div>
 
                     <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="user_phone">Номер телефона *</label>
-                            <input
+                            <Input
+                                label="Номер телефона *"
                                 type="tel"
-                                id="user_phone"
                                 name="user_phone"
                                 value={formData.user_phone}
-                                onChange={handleInputChange}
-                                className={errors.user_phone ? 'error' : ''}
+                                onChange={(value) => handleInputChange('user_phone', value)}
+                                error={errors.user_phone}
                                 placeholder="+7 (999) 999-99-99"
                                 disabled={loading}
                             />
-                            {errors.user_phone && <span className="error-text">{errors.user_phone}</span>}
                         </div>
                     </div>
 
                     <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="user_name">Имя *</label>
-                            <input
+                            <Input
+                                label="Имя *"
                                 type="text"
-                                id="user_name"
                                 name="user_name"
                                 value={formData.user_name}
-                                onChange={handleInputChange}
-                                className={errors.user_name ? 'error' : ''}
+                                onChange={(value) => handleInputChange('user_name', value)}
+                                error={errors.user_name}
                                 placeholder="Иван"
                                 disabled={loading}
                             />
-                            {errors.user_name && <span className="error-text">{errors.user_name}</span>}
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="user_surname">Фамилия *</label>
-                            <input
+                            <Input
+                                label="Фамилия *"
                                 type="text"
-                                id="user_surname"
                                 name="user_surname"
                                 value={formData.user_surname}
-                                onChange={handleInputChange}
-                                className={errors.user_surname ? 'error' : ''}
+                                onChange={(value) => handleInputChange('user_surname', value)}
+                                error={errors.user_surname}
                                 placeholder="Иванов"
                                 disabled={loading}
                             />
-                            {errors.user_surname && <span className="error-text">{errors.user_surname}</span>}
                         </div>
                     </div>
 
                     <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="user_birthday">Дата рождения *</label>
-                            <input
+                            <Input
+                                label="Дата рождения *"
                                 type="text"
-                                id="user_birthday"
                                 name="user_birthday"
                                 value={formData.user_birthday}
-                                onChange={handleInputChange}
-                                className={errors.user_birthday ? 'error' : ''}
+                                onChange={(value) => handleInputChange('user_birthday', value)}
+                                error={errors.user_birthday}
                                 placeholder="ДД.ММ.ГГГГ"
                                 disabled={loading}
                             />
-                            {errors.user_birthday && <span className="error-text">{errors.user_birthday}</span>}
                         </div>
                     </div>
 
                     <div className="form-actions">
-                        <button
+                        <Button
                             type="button"
-                            className="back-btn"
+                            variant="secondary"
                             onClick={handleBackToLogin}
                             disabled={loading}
                         >
                             Вернуться
-                        </button>
-                        <button
+                        </Button>
+                        <Button
                             type="submit"
-                            className="register-submit-btn"
-                            disabled={loading}
+                            variant="success"
+                            loading={loading}
                         >
                             {loading ? 'Регистрация...' : 'Зарегистрироваться'}
-                        </button>
+                        </Button>
                     </div>
                 </form>
             </div>

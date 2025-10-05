@@ -22,9 +22,9 @@ const OrdersTable = ({ orders, sortConfig, onSort, onEdit, onDelete }) => {
         },
         {
             key: 'created_at',
-            title: `Дата заказа ${getSortIcon('created_at')}`,
+            title: 'Дата заказа', // Убрали стрелку из title
             sortable: true,
-            sortIcon: getSortIcon('created_at'),
+            sortIcon: getSortIcon('created_at'), // Стрелка только здесь
             onSort: () => onSort('created_at'),
             width: '150px'
         },
@@ -55,9 +55,9 @@ const OrdersTable = ({ orders, sortConfig, onSort, onEdit, onDelete }) => {
         },
         {
             key: 'total_amount',
-            title: `Сумма заказа ${getSortIcon('total_amount')}`,
+            title: 'Сумма заказа', // Убрали стрелку из title
             sortable: true,
-            sortIcon: getSortIcon('total_amount'),
+            sortIcon: getSortIcon('total_amount'), // Стрелка только здесь
             onSort: () => onSort('total_amount'),
             width: '120px'
         },

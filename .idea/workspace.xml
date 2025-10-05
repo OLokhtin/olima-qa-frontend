@@ -4,33 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfcb05e0-42f0-4587-9a3a-f7978ece2276" name="Changes" comment="Sorting">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_09_2025,_11_52_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_09_2025__11_52__Changes_.xml" beforeDir="false" />
+    <list default="true" id="dfcb05e0-42f0-4587-9a3a-f7978ece2276" name="Changes" comment="Components structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminModal.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/OrdersPage/OrdersPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminPanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header/Header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminPanel.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminTable.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/OrdersTable/OrdersTable.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/PaginationBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Pagination/Pagination.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/PaginationBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Pagination/Pagination.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersModal.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/OrdersPage/OrdersPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersRow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/OrdersRow/OrdersRow.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/orders/OrdersTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/OrdersTable/OrdersTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/LoginPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/RegisterPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/RegisterPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/button/GreenBtn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Button/Button.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/button/GreenBtn.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Button/Button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/button/RedBtn.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/button/RedBtn.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/input/Input.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Form/Input/Input.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/input/Input.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Form/Input/Input.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orders/OrdersTable/OrdersTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/OrdersTable/OrdersTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RegisterPage/RegisterPage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +104,7 @@
       <workItem from="1759061812338" duration="11622000" />
       <workItem from="1759176088926" duration="2441000" />
       <workItem from="1759656282921" duration="3424000" />
-      <workItem from="1759659732411" duration="1845000" />
+      <workItem from="1759659732411" duration="2511000" />
     </task>
     <task id="LOCAL-00001" summary="Orders">
       <option name="closed" value="true" />
@@ -152,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759068730809</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Components structure">
+      <option name="closed" value="true" />
+      <created>1759661674159</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1759661674159</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +159,7 @@
     <MESSAGE value="Orders" />
     <MESSAGE value="Delete row" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Components structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Components structure" />
   </component>
 </project>
